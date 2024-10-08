@@ -6,8 +6,8 @@ import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
-        String inputFileName = "C:\\My_Computer\\Resume Projects\\Linear_equation_solver\\src\\main\\java\\input.txt";
-        String outputFileName = "C:\\My_Computer\\Resume Projects\\Linear_equation_solver\\src\\main\\java\\output.txt";
+        String inputFileName = "";
+        String outputFileName = "";
         for (int i = 0; i < args.length; i++) {
             String arg = args[i];
             if ("-in".equals(arg)) {
