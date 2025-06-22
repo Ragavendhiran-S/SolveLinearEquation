@@ -3,12 +3,12 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 
-public class LinearEquation {
+public class SolverUtility {
     Matrix matrix;
     int rowCount;
     Complex[] answers;
 
-    public LinearEquation(Matrix matrix, int numOfRows) {
+    public SolverUtility(Matrix matrix, int numOfRows) {
         this.matrix = matrix;
         this.rowCount = numOfRows;
         answers = new Complex[numOfRows];
@@ -61,7 +61,6 @@ public class LinearEquation {
                     }
                     boolean isFoundSolution = isFoundInThisColumn || isFoundInThisRow || isFoundInDiagonal;
                     if (!isFoundSolution) {
-//                        System.out.println("Line 69");
                         if (Arrays.stream(matrix.rows[r].values)
                                 .limit(matrix.rows[r].values.length - 1)
                                 .filter(value -> value.getReal() == 0 && value.getImaginary() == 0)
@@ -138,8 +137,7 @@ public class LinearEquation {
         }
     }
 
-    public void outputToFile(String fileName) {
-        File file = new File(fileName);
+    public void outputToFile(File file) {
         try (PrintWriter fileWriter = new PrintWriter(file)) {
             for (Complex answer : answers) {
                 double realPart = answer.getReal();
@@ -165,8 +163,7 @@ public class LinearEquation {
         }
     }
 
-    public static void outputSpecialCaseToFile(String fileName, String toOutput) {
-        File file = new File(fileName);
+    public static void outputSpecialCaseToFile(File file, String toOutput) {
         try (PrintWriter fileWriter = new PrintWriter(file)) {
             fileWriter.print(toOutput);
         } catch (FileNotFoundException fileNotFoundException) {
