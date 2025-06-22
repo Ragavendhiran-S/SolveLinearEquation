@@ -1,3 +1,5 @@
+package io.github.ragavendhiran;
+
 import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -98,9 +100,9 @@ public class LinearEquationSolver {
             Solution numOfSolution = solver.solve();
 
             switch (numOfSolution) {
-                case ZERO -> SolverUtility.outputSpecialCaseToFile(outputFile, "No solutions");
-                case ONE -> solver.outputToFile(outputFile);
-                case INFINITE -> SolverUtility.outputSpecialCaseToFile(outputFile, "Infinitely many solutions");
+                case Solution.ZERO -> SolverUtility.outputSpecialCaseToFile(outputFile, "No solutions");
+                case Solution.ONE -> solver.outputToFile(outputFile);
+                case Solution.INFINITE -> SolverUtility.outputSpecialCaseToFile(outputFile, "Infinitely many solutions");
             }
 
         } catch (Exception e) {
